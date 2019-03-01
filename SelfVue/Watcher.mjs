@@ -1,5 +1,16 @@
 import { Dep } from './Dep.mjs';
 
+export function getValue(data, exp) {
+  if (exp.length === 0) {
+    return null;
+  }
+  let temp = data;
+  exp.forEach((key) => {
+    temp = temp[key];
+  });
+  return temp;
+}
+
 export class Watcher {
   constructor(vm, exp, cb) {
     this.vm = vm;
@@ -9,7 +20,7 @@ export class Watcher {
   }
 
   update() {
-    const value = this.vm.data[this.exp];
+    const value = getValue(this.vm.data, this.exp);
     const oldVal = this.value;
     if (value !== oldVal) {
       this.value = value;
@@ -19,7 +30,7 @@ export class Watcher {
 
   get() {
     Dep.target = this;
-    const value = this.vm.data[this.exp];
+    const value = getValue(this.vm.data, this.exp);
     Dep.target = null;
     return value;
   }

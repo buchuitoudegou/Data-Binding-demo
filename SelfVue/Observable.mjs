@@ -22,9 +22,8 @@ function defineReactive(data, key, val) {
       return val;
     },
     set: (newVal) => {
-      
-      dep.notify();
       val = newVal;
+      dep.notify();
     }
   });
 }
