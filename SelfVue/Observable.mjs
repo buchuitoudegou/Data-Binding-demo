@@ -1,7 +1,7 @@
 import { Dep } from './Dep.mjs';
 
 export function observe(data) {
-  if (!data || !typeof(data) === 'object') {
+  if (!data || !(typeof(data) === 'object')) {
     return;
   }
   Object.keys(data).forEach((key) => {
@@ -22,6 +22,7 @@ function defineReactive(data, key, val) {
       return val;
     },
     set: (newVal) => {
+      // console.log(newVal);
       val = newVal;
       dep.notify();
     }

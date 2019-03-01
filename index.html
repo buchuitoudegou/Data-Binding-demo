@@ -12,7 +12,10 @@
   <title>Vue-test-demo</title>
 </head>
 <body>
-  <h1 id="root">{{name}}</h1>
+  <div id="root">
+    {{count}}
+    <input vmodel="count" />
+  </div>
   <button id="btn">+</button>
 </body>
 </html>

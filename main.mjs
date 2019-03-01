@@ -8,10 +8,11 @@ window.onload = function() {
   const selfVue = new SelfVue({
     el: '#root',
     data: {
-      name: 1
+      name: 'abc',
+      count: 123
     }
   });
   document.querySelector('#btn').addEventListener('click', () => {
-    selfVue.name += 1;
+    selfVue.count += 1;
   });
 } 
