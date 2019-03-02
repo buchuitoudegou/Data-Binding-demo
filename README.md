@@ -2,4 +2,11 @@
 simple demo of data binding
 
 ## run
-`npm install serve & serve`
+install static http server
+```
+npm install serve
+```
+run server
+```
+serve
+```
